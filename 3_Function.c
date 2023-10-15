@@ -29,7 +29,7 @@ if (addrs == NULL)
 return (write(1, "(nil)", 5));
 buffer[BUFF_SIZE - 1] = '\0';
 UNUSED(precision);
-num_addrs = (unsigned long)addrs;
+num_addr = (unsigned long)addrs;
 while (num_addr > 0)
 {
 buffer[IND--] = map_to[num_addr % 16];
@@ -43,8 +43,9 @@ extra_C = '+', len++;
 else if (flags & F_SPACE)
 extra_C = ' ', len++;
 IND++;
-return (write_pointer(buffer, IDN, len, width,
+return (write_pointer(buffer, IND, len, width,
 flags, padd, extra_C, Padd_start));
+
 }
 
 /**

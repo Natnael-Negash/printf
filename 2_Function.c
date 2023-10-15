@@ -130,11 +130,11 @@ int print_hexa(va_list types, char map_to[], char buffer[],
 			int flags, char flag_ch, int width, int precision, int size)
 {
 int a = BUFF_SIZE - 2;
-unsigned long int num = va_arg(types, unsigned long int);
+unsigned long int NUM = va_arg(types, unsigned long int);
 unsigned long int init_num = NUM;
 
 UNUSED(width);
-num = convert_size_unsgnd(NUM, size);
+NUM = convert_size_unsgnd(NUM, size);
 if (NUM == 0)
 buffer[a--] = '0';
 buffer[BUFF_SIZE - 1] = '\0';

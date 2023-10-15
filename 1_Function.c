@@ -64,14 +64,14 @@ int print_string(va_list types, char buffer[],
 		}
 		else
 		{
-			for (a = width - length; a > 0; a--)
+			for (a = width - len; a > 0; a--)
 				write(1, " ", 1);
 			write(1, &str[0], len);
 			return (width);
 		}
 	}
 
-	return (write(1, str, length));
+return (write(1, str, len));
 }
 
 /**
@@ -117,7 +117,7 @@ int print_int(va_list types, char buffer[],
 	long int m = va_arg(types, long int);
 	unsigned long int num;
 
-	m = convert_size_number(n, size);
+	m = convert_size_number(a, size);
 
 	if (m == 0)
 		buffer[a--] = '0';
