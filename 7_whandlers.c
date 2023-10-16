@@ -2,16 +2,17 @@
 
 /************************* WRITE HANDLE *************************/
 /**
-int get_size(const char *format, int *j) * handle_write_char - Prints a string
- * @c: char types.
- * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags.
- * @width: get width.
- * @precision: precision specifier
- * @size: Size specifier
- *
- * Return: Number of chars printed.
- */
+* handle_write_char - Prints a string
+* @c: char types.
+* @buffer: Buffer array to handle print
+* @flags:  Calculates active flags.
+* @width: get width.
+* @precision: precision specifier
+* @size: Size specifier
+*
+* Return: Number of chars printed.
+*/
+
 int handle_write_char(char c, char buffer[],
 	int flags, int width, int precision, int size)
 { /* char is stored at left and paddind at buffer's right */
