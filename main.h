@@ -35,7 +35,7 @@ struct fmt
 typedef struct fmt fmt_t;
 
 int _printf(const char *format, ...);
-int handle_print(const char *fmt, int *i,
+int handle_print(const char *fmt, int *j,
 va_list list, char buffer[], int flags, int width, int precision, int size);
 int print_char(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
@@ -64,10 +64,10 @@ int print_non_printable(va_list types, char buffer[],
 int print_pointer(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
-int get_flags(const char *format, int *i);
-int get_width(const char *format, int *i, va_list list);
-int get_precision(const char *format, int *i, va_list list);
-int get_size(const char *format, int *i);
+int get_flags(const char *format, int *j);
+int get_width(const char *format, int *j, va_list list);
+int get_precision(const char *format, int *j, va_list list);
+int get_size(const char *format, int *j);
 
 int print_reverse(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
