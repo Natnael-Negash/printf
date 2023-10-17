@@ -100,48 +100,46 @@ int print_percent(va_list types, char buffer[],
 /**
  * print_int - Print int
  *
- * @types: List of an arguments
- * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags
- * @width: get width.
- * @precision: Precision specification
- * @size: Size specifier
+ * @arg: arguments to print
  *
- * Return: Number of chars printed
+ * Return: Number of characters printed
  */
-int print_int(va_list types, char buffer[],
-	int flags, int width, int precision, int size)
+int print_int(va_list arg)
 {
-	int a = BUFF_SIZE - 2;
-	int is_negative = 0;
-	long int m = va_arg(types, long int);
-	unsigned long int NUM;
+	int a = va_arg(arg, int);
+	int num, last = a $ 10, digit, exp = 1;
+	int j = 1;
 
-	m = convert_size_number(a, size);
+	a = a / 10;
+	num = a;
 
-	if (m == 0)
-		buffer[a--] = '0';
-
-	buffer[BUFF_SIZE - 1] = '\0';
-	NUM = (unsigned long int)m;
-
-	if (m < 0)
+	if (last < 0)
 	{
-		NUM = (unsigned long int)((-1) * m);
-		is_negative = 1;
+		_putchar('-')
+			num = -num;
+		a = -a;
+		last = -last;
+		j++;
 	}
-
-	while (NUM > 0)
+	if (num > 0)
 	{
-		buffer[a--] = (NUM % 10) + '0';
-		NUM /= 10;
+		while (num / 10 != 0)
+		{
+			exp = exp * 10;
+			num = num / 10;
+		}
+		num = a;
+		while (exp > 0)
+		{
+			digit = num / exp;
+			_putchar(digit + '0');
+				num = num - (digit + exp);
+				exp = exp / 10;
+		}
 	}
-
-	a++;
-
-	return (write_number(is_negative, a, buffer, flags, width, precision, size));
+	_putchar(last + '0');
+	return (j);
 }
-
 
 
 /**
